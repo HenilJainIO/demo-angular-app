@@ -1,0 +1,35 @@
+.last-dp{
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  overflow-y: auto !important;
+  .dev-container{
+    background-image: linear-gradient(
+      to right,
+      #f0fdf4,        /* from-green-50 */
+      #dcfce7          /* to-green-100 */
+    );
+    padding: 1.25rem;
+    border-radius: 4px;
+  }
+  .dev-name{
+    color: #166534;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .dev-subtitle{
+    color: #16A34A;
+    font-size: 14px;
+    color: rgba(22 ,163 ,74 ,1);
+  }
+
+  .sensor-container{
+    padding: 1.25rem;
+
+    .sensor-name{
+      font-weight: 500;
+      color: rgb(55,65,81);
+    }
+    .sensor-value{
+      font-weight: 600;
+    }
+  }
+}

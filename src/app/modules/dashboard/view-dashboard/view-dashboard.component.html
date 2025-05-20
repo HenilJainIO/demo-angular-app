@@ -1,0 +1,67 @@
+<div class="dashboard-container mt-4">
+  <div class="dashboard-title">
+    Sensor Analytics Dashboard
+  </div>
+  <div class="dashboard-subtitle mb-3">
+    Monitor and analyze sensor data in real-time
+  </div>
+
+  <div class="filters-container-card my-2 p-3">
+    <div class="row">
+      <div class="col-3">
+        <label class="mb-1">Device Section</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedDevice" (change)="patchFirstDevice()">
+          <option *ngFor="let device of allDevices" [value]="device.devID">{{device.devID}}</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <label class="mb-1">Sensor Selection</label>
+        <ng-select [(ngModel)]="selectedSensors" [multiple]="true" appearance="underline">
+          <ng-container *ngFor="let data of allSensors">
+            <ng-option [value]="data.sensorId">{{data.sensorId}}</ng-option>
+          </ng-container>
+        </ng-select>
+      </div>
+      <div class="col-3">
+        <label class="mb-1">Time Range</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="currentTimePeriod">
+          <option *ngFor="let time of timePeriods" [value]="time">{{time}}</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <button type="button" class="btn btn-success mt-4 w-100" (click)="emitAllValues()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-filter mr-2 h-4 w-4"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+          Apply Filters
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-container">
+  <ng-container *ngFor="let widget of allWidgets;let ind = index">
+      <ng-container [ngSwitch]="widget.type">
+        <ng-container *ngSwitchCase="'lastDp'">
+          <app-last-dp [config]="widget"></app-last-dp>
+        </ng-container>
+        <ng-container *ngSwitchCase="'barChart'">
+          <app-bar-chart [config]="widget"></app-bar-chart>
+        </ng-container>
+        <ng-container *ngSwitchCase="'lineChart'">
+          <app-line-chart [config]="widget"></app-line-chart>
+        </ng-container>
+        <ng-container *ngSwitchCase="'image'">
+          <app-image [config]="widget"></app-image>
+        </ng-container>
+        <ng-container *ngSwitchCase="'table'">
+          <app-data-table></app-data-table>
+        </ng-container>
+        <ng-container *ngSwitchCase="'pieChart'">
+          <app-pie-chart [config]="widget"></app-pie-chart>
+        </ng-container>
+        <ng-container *ngSwitchCase="'text'">
+          <app-text></app-text>
+        </ng-container>
+      </ng-container>
+  </ng-container>
+</div>

@@ -1,0 +1,35 @@
+<div
+  class="last-dp"
+  [style.backgroundColor]="config?.styleConfig?.backGroundColor"
+  [style.position]="'absolute'"
+  [style.top.px]="config?.position?.x"
+  [style.borderRadius.px]="config?.styleConfig?.borderRadius || 0"
+  [style.color]="config?.styleConfig?.fontColor || 0"
+  [style.width.px]="config?.width"
+  [style.height.px]="config?.height"
+  [style.zIndex]="config?.styleConfig?.zIndex"
+  [style.left.px]="config?.position?.y">
+  <div class="row m-0">
+    <div class="col-12 dev-container">
+      <div class="dev-name">
+        {{config.devID}}
+      </div>
+      <div class="dev-subtitle">
+        Current Sensor Readings
+      </div>
+    </div>
+    <div class="col-12 sensor-container">
+      <ng-container *ngFor="let data of lastDPData;let ind = index">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <div class="sensor-name">
+            {{data.sensor}}
+          </div>
+          <div class="sensor-value">
+            {{data.value}}
+          </div>
+        </div>
+        <hr *ngIf="ind != lastDPData.length - 1"/>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div [style.backgroundColor]="config?.styleConfig?.backGroundColor"
+[style.position]="'absolute'"
+[style.top.px]="config?.position?.x"
+[style.left.px]="config?.position?.y"
+[style.padding.px]="config?.styleConfig?.padding"
+[style.borderRadius.px]="config?.styleConfig?.borderRadius || 0"
+[style.borderStyle]="config?.styleConfig?.borderStyle"
+[style.borderColor]="config?.styleConfig?.borderColor"
+[style.borderWidth.px]="config?.styleConfig?.borderSize"
+[style.width.px]="config?.width"
+[style.zIndex]="config?.styleConfig?.zIndex"
+class="line-chart"
+[style.height.px]="config?.height">
+
+<highcharts-chart
+  [Highcharts]="highcharts"
+  [options]="chartOptions"
+  *ngIf="!showLoader"
+></highcharts-chart>
+</div>
