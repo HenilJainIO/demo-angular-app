@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import DataAccess from "io_connect/connectors/data_access.js";
+import DataAccess from "io_connect/connectors/DataAccess.js";
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({

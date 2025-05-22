@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import DataAccess from "io_connect/connectors/data_access.js";
+import DataAccess from "io_connect/connectors/DataAccess.js";
 import { SdkService } from './services/sdk.service';
 @Component({
   selector: 'app-root',
